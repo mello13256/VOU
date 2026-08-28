@@ -65,6 +65,8 @@ O site atualiza sozinho 1 a 2 minutos depois de cada push para o ramo publicado.
 | Frase principal | `index.html` → `<h1 class="hero__title">` |
 | Texto do "Sobre mim" | `index.html` → secção `id="sobre"` |
 | Serviços | `index.html` → secção `id="servicos"`, blocos `<article class="card card--service">` |
+| Nome e cargo no topo | `index.html` → `<div class="hero__identity">` (`hero__name` e `hero__role`) |
+| Passos do "Como trabalho" | `index.html` → secção `id="processo"`, blocos `<li class="step">` |
 | Descrição dos projetos | `index.html` → secção `id="projetos"`, `<p class="project__text">` |
 | Adicionar um projeto | copiar um bloco `<article class="project">` inteiro e trocar textos, link e etiquetas |
 | Conhecimentos | `index.html` → secção `id="stack"` |

@@ -293,6 +293,24 @@ a { color: inherit; text-decoration: none; }
   grid-template-columns: 1fr;
   align-items: center;
 }
+.hero__identity { margin-bottom: 1.1rem; }
+.hero__name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.85rem, 1.5rem + 1.7vw, 2.6rem);
+  line-height: 1.05;
+  letter-spacing: -.03em;
+  margin: 0 0 .35rem;
+}
+.hero__role {
+  font-family: var(--font-mono);
+  font-size: clamp(.84rem, .8rem + .2vw, .95rem);
+  color: var(--muted);
+  margin: 0;
+  padding-left: .9rem;
+  border-left: 2px solid rgba(53, 214, 164, .5);
+}
+
 .hero__title {
   font-size: clamp(2.7rem, 1.6rem + 5.4vw, 5.1rem);
   letter-spacing: -.04em;
@@ -419,6 +437,33 @@ a { color: inherit; text-decoration: none; }
   border-radius: 999px;
   background: rgba(255,255,255,.02);
 }
+
+/* ---------- 8b. Como trabalho ---------- */
+.steps {
+  display: grid; gap: 14px;
+  margin: 0; padding: 0; list-style: none;
+}
+.step {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem 1.15rem;
+  align-items: start;
+  padding: 1.35rem 1.4rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  transition: border-color .3s var(--ease), background-color .3s var(--ease), transform .3s var(--ease);
+}
+.step:hover { border-color: var(--line-strong); background: var(--surface-2); transform: translateY(-2px); }
+.step__num {
+  font-family: var(--font-mono);
+  font-size: 1.05rem;
+  line-height: 1.35;
+  color: var(--arch-bright);
+  min-width: 2.4ch;
+}
+.step__title { font-size: 1.08rem; letter-spacing: -.015em; margin-bottom: .35rem; }
+.step__text { color: var(--muted); font-size: .96rem; }
 
 /* ---------- 9. Projetos ---------- */
 .projects { display: grid; gap: clamp(20px, 3vw, 32px); }
@@ -651,6 +696,8 @@ a { color: inherit; text-decoration: none; }
 
 @media (min-width: 960px) {
   .hero__inner { grid-template-columns: 1.08fr .92fr; }
+  .steps { grid-template-columns: repeat(2, 1fr); }
+  .step:last-child { grid-column: 1 / -1; }
   .project { grid-template-columns: .95fr 1.05fr; }
   .project--reverse .project__preview { order: 2; }
   .grid--services { grid-template-columns: repeat(2, 1fr); }
@@ -678,9 +725,9 @@ a { color: inherit; text-decoration: none; }
     transition-duration: .001ms !important;
   }
   .js .reveal { opacity: 1; transform: none; }
-  .btn:hover, .card:hover, .project:hover .window { transform: none; }
+  .btn:hover, .card:hover, .step:hover, .project:hover .window { transform: none; }
 }
 
 @media (hover: none) {
-  .btn:hover, .card:hover { transform: none; }
+  .btn:hover, .card:hover, .step:hover { transform: none; }
 }
