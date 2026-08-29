@@ -272,42 +272,27 @@
     glow.className = 'cursor-glow';
     document.body.appendChild(glow);
 
-    var target = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
-    var at = { x: target.x, y: target.y };
+    var at = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
     var glowFrame = null;
 
     function placeGlow() {
       glow.style.transform = 'translate3d(' + at.x + 'px, ' + at.y + 'px, 0)';
     }
 
-    /* a luz persegue o rato com um pequeno atraso, para não parecer colada */
-    function followGlow() {
-      at.x += (target.x - at.x) * 0.16;
-      at.y += (target.y - at.y) * 0.16;
-      placeGlow();
-
-      if (Math.abs(target.x - at.x) > 0.4 || Math.abs(target.y - at.y) > 0.4) {
-        glowFrame = window.requestAnimationFrame(followGlow);
-      } else {
-        glowFrame = null;
-      }
-    }
-
     function moveGlow(event) {
       if (event.pointerType && event.pointerType !== 'mouse') return;
-      target.x = event.clientX;
-      target.y = event.clientY;
+      at.x = event.clientX;
+      at.y = event.clientY;
       glow.classList.add('is-on');
 
-      /* com movimento reduzido a luz continua a existir, mas sem perseguição */
-      if (reduceMotion) {
-        at.x = target.x;
-        at.y = target.y;
-        placeGlow();
-        return;
+      /* a luz vai direta para o cursor; o requestAnimationFrame só evita
+         escrever no estilo mais vezes do que o ecrã desenha */
+      if (!glowFrame) {
+        glowFrame = window.requestAnimationFrame(function () {
+          glowFrame = null;
+          placeGlow();
+        });
       }
-
-      if (!glowFrame) glowFrame = window.requestAnimationFrame(followGlow);
     }
 
     placeGlow();
