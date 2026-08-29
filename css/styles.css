@@ -143,26 +143,6 @@ a { color: inherit; text-decoration: none; }
   opacity: .5;
 }
 
-/* luz que acompanha o cursor (criada pelo main.js, só em rato)
-   z-index negativo: fica atrás de todo o conteúdo, a iluminar o fundo */
-.cursor-glow {
-  position: fixed;
-  top: 0; left: 0;
-  z-index: -1;
-  width: 88px; height: 88px;
-  margin: -44px 0 0 -44px;
-  border-radius: 50%;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity .45s var(--ease);
-  background:
-    radial-gradient(circle, rgba(140, 215, 255, .58) 0%, transparent 38%),
-    radial-gradient(circle, rgba(23, 147, 209, .46) 0%, rgba(23, 147, 209, .22) 48%, transparent 76%);
-  filter: blur(10px);
-  will-change: transform;
-}
-.cursor-glow.is-on { opacity: 1; }
-
 /* ---------- 4. Layout ---------- */
 .container { width: min(100% - 2.5rem, 1140px); margin-inline: auto; }
 

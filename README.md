@@ -73,7 +73,6 @@ O site atualiza sozinho 1 a 2 minutos depois de cada push para o ramo publicado.
 | Contactos | `index.html` → secção `id="contato"` **e** o rodapé |
 | Cores | `css/styles.css` → bloco `:root` (`--arch`, `--mint`, `--abyss`…) |
 | Linhas do terminal | `js/main.js` → variável `session` |
-| Luz que segue o rato | `css/styles.css` → `.cursor-glow` (cor e tamanho) e `js/main.js` → secção 8 |
 
 O número de WhatsApp aparece em dois formatos: `+351 910 052 169` (o que se lê) e
 `351910052169` (dentro do link `wa.me` e do botão de copiar). Se mudar o número,
@@ -100,7 +99,4 @@ python3 -m http.server 8000
 - **Acessibilidade:** HTML semântico, link para saltar o menu, foco visível pelo teclado,
   menu que fecha com `Esc`, `prefers-reduced-motion` respeitado.
 - **Responsivo** de 320 px a monitores grandes. Pontos de quebra: 380, 720, 900, 960 e 1400 px.
-- **Luz do cursor:** um halo azul de 88 px colado ao rato, numa camada com
-  `z-index: -1` — atrás de todo o conteúdo, a iluminar o fundo. Sem perseguição:
-  vai direta para o cursor. Só aparece em ecrãs com rato (nada em toque).
 - **Sem `localStorage`, sem cookies, sem rastreio.**

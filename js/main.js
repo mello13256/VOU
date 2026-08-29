@@ -264,52 +264,7 @@
     });
   });
 
-  /* ---------- 7. Luz que segue o cursor ---------- */
-  var finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
-
-  if (finePointer) {
-    var glow = document.createElement('div');
-    glow.className = 'cursor-glow';
-    document.body.appendChild(glow);
-
-    var at = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
-    var glowFrame = null;
-
-    function placeGlow() {
-      glow.style.transform = 'translate3d(' + at.x + 'px, ' + at.y + 'px, 0)';
-    }
-
-    function moveGlow(event) {
-      if (event.pointerType && event.pointerType !== 'mouse') return;
-      at.x = event.clientX;
-      at.y = event.clientY;
-      glow.classList.add('is-on');
-
-      /* a luz vai direta para o cursor; o requestAnimationFrame só evita
-         escrever no estilo mais vezes do que o ecrã desenha */
-      if (!glowFrame) {
-        glowFrame = window.requestAnimationFrame(function () {
-          glowFrame = null;
-          placeGlow();
-        });
-      }
-    }
-
-    placeGlow();
-
-    /* pointermove nos navegadores atuais, mousemove como rede de segurança */
-    if (window.PointerEvent) {
-      document.addEventListener('pointermove', moveGlow, { passive: true });
-    } else {
-      document.addEventListener('mousemove', moveGlow, { passive: true });
-    }
-
-    /* apaga quando o rato sai da janela ou o separador perde o foco */
-    document.addEventListener('mouseleave', function () { glow.classList.remove('is-on'); });
-    window.addEventListener('blur', function () { glow.classList.remove('is-on'); });
-  }
-
-  /* ---------- 8. Ano no rodapé ---------- */
+  /* ---------- 7. Ano no rodapé ---------- */
   var year = document.getElementById('year');
   if (year) year.textContent = String(new Date().getFullYear());
 })();
