@@ -283,12 +283,10 @@
   }
 
   /* ---------- 8. Luz que segue o cursor ---------- */
-  var backdrop = document.querySelector('.backdrop');
-
-  if (backdrop && finePointer && !reduceMotion) {
+  if (finePointer) {
     var glow = document.createElement('div');
     glow.className = 'cursor-glow';
-    backdrop.appendChild(glow);
+    document.body.appendChild(glow);
 
     var target = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
     var at = { x: target.x, y: target.y };
@@ -311,15 +309,31 @@
       }
     }
 
-    placeGlow();
-
-    document.addEventListener('pointermove', function (event) {
+    function moveGlow(event) {
       if (event.pointerType && event.pointerType !== 'mouse') return;
       target.x = event.clientX;
       target.y = event.clientY;
       glow.classList.add('is-on');
+
+      /* com movimento reduzido a luz continua a existir, mas sem perseguição */
+      if (reduceMotion) {
+        at.x = target.x;
+        at.y = target.y;
+        placeGlow();
+        return;
+      }
+
       if (!glowFrame) glowFrame = window.requestAnimationFrame(followGlow);
-    }, { passive: true });
+    }
+
+    placeGlow();
+
+    /* pointermove nos navegadores atuais, mousemove como rede de segurança */
+    if (window.PointerEvent) {
+      document.addEventListener('pointermove', moveGlow, { passive: true });
+    } else {
+      document.addEventListener('mousemove', moveGlow, { passive: true });
+    }
 
     /* apaga quando o rato sai da janela ou o separador perde o foco */
     document.addEventListener('mouseleave', function () { glow.classList.remove('is-on'); });
