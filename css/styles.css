@@ -62,10 +62,6 @@ body {
 
 body.is-locked { overflow: hidden; }
 
-/* dá ao body um contexto de composição próprio, para o mix-blend-mode
-   da luz do cursor ter com que se misturar em todos os navegadores */
-body { isolation: isolate; }
-
 h1, h2, h3 {
   font-family: var(--font-display);
   font-weight: 700;
@@ -148,23 +144,21 @@ a { color: inherit; text-decoration: none; }
 }
 
 /* luz que acompanha o cursor (criada pelo main.js, só em rato)
-   fica por cima do conteúdo e em "screen": só clareia, nunca escurece,
-   por isso o texto continua legível por baixo dela */
+   z-index negativo: fica atrás de todo o conteúdo, a iluminar o fundo */
 .cursor-glow {
   position: fixed;
   top: 0; left: 0;
-  z-index: 1;
-  width: 620px; height: 620px;
-  margin: -310px 0 0 -310px;
+  z-index: -1;
+  width: 240px; height: 240px;
+  margin: -120px 0 0 -120px;
   border-radius: 50%;
   pointer-events: none;
   opacity: 0;
   transition: opacity .45s var(--ease);
   background:
-    radial-gradient(circle, rgba(96, 200, 255, .34) 0%, transparent 30%),
-    radial-gradient(circle, rgba(23, 147, 209, .26) 0%, rgba(23, 147, 209, .13) 40%, transparent 72%);
-  filter: blur(24px);
-  mix-blend-mode: screen;
+    radial-gradient(circle, rgba(120, 210, 255, .42) 0%, transparent 34%),
+    radial-gradient(circle, rgba(23, 147, 209, .34) 0%, rgba(23, 147, 209, .16) 42%, transparent 72%);
+  filter: blur(14px);
   will-change: transform;
 }
 .cursor-glow.is-on { opacity: 1; }
