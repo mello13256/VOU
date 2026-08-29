@@ -1,4 +1,4 @@
-# Portfólio — Joséfino (Meln)
+# Portfólio — Miguel (Meln)
 
 Site pessoal e página de serviços: desenvolvimento web, aplicativos, jogos e Linux
 (Arch Linux / CachyOS).

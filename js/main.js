@@ -110,7 +110,7 @@
   var terminal = document.getElementById('terminal-body');
 
   var session = [
-    { cmd: 'whoami', out: 'joséfino "meln" — desenvolvedor' },
+    { cmd: 'whoami', out: 'miguel "meln" — desenvolvedor' },
     { cmd: 'cat stack.txt', out: 'web · apps · jogos · linux' },
     { cmd: 'uname -o', out: 'arch linux · cachyos' },
     { cmd: 'status', out: '● disponível para novos projetos', ok: true }
