@@ -426,7 +426,7 @@ a { color: inherit; text-decoration: none; }
 .card::before {
   content: "";
   position: absolute; inset: 0;
-  background: radial-gradient(340px circle at var(--mx, 50%) var(--my, 0%), rgba(23,147,209,.14), transparent 60%);
+  background: radial-gradient(110px circle at var(--mx, 50%) var(--my, 0%), rgba(23,147,209,.20), transparent 62%);
   opacity: 0; transition: opacity .35s var(--ease);
   pointer-events: none;
 }
