@@ -264,25 +264,9 @@
     });
   });
 
-  /* ---------- 7. Brilho que segue o cursor nos cartões ---------- */
+  /* ---------- 7. Luz que segue o cursor ---------- */
   var finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
-  if (finePointer && !reduceMotion) {
-    var frame = null;
-    Array.prototype.forEach.call(document.querySelectorAll('.card'), function (card) {
-      card.addEventListener('mousemove', function (event) {
-        if (frame) return;
-        frame = window.requestAnimationFrame(function () {
-          var box = card.getBoundingClientRect();
-          card.style.setProperty('--mx', (event.clientX - box.left) + 'px');
-          card.style.setProperty('--my', (event.clientY - box.top) + 'px');
-          frame = null;
-        });
-      });
-    });
-  }
-
-  /* ---------- 8. Luz que segue o cursor ---------- */
   if (finePointer) {
     var glow = document.createElement('div');
     glow.className = 'cursor-glow';
@@ -340,7 +324,7 @@
     window.addEventListener('blur', function () { glow.classList.remove('is-on'); });
   }
 
-  /* ---------- 9. Ano no rodapé ---------- */
+  /* ---------- 8. Ano no rodapé ---------- */
   var year = document.getElementById('year');
   if (year) year.textContent = String(new Date().getFullYear());
 })();
