@@ -149,16 +149,16 @@ a { color: inherit; text-decoration: none; }
   position: fixed;
   top: 0; left: 0;
   z-index: -1;
-  width: 240px; height: 240px;
-  margin: -120px 0 0 -120px;
+  width: 44px; height: 44px;
+  margin: -22px 0 0 -22px;
   border-radius: 50%;
   pointer-events: none;
   opacity: 0;
   transition: opacity .45s var(--ease);
   background:
-    radial-gradient(circle, rgba(120, 210, 255, .42) 0%, transparent 34%),
-    radial-gradient(circle, rgba(23, 147, 209, .34) 0%, rgba(23, 147, 209, .16) 42%, transparent 72%);
-  filter: blur(14px);
+    radial-gradient(circle, rgba(140, 215, 255, .58) 0%, transparent 38%),
+    radial-gradient(circle, rgba(23, 147, 209, .46) 0%, rgba(23, 147, 209, .22) 48%, transparent 76%);
+  filter: blur(7px);
   will-change: transform;
 }
 .cursor-glow.is-on { opacity: 1; }

@@ -100,7 +100,7 @@ python3 -m http.server 8000
 - **Acessibilidade:** HTML semântico, link para saltar o menu, foco visível pelo teclado,
   menu que fecha com `Esc`, `prefers-reduced-motion` respeitado.
 - **Responsivo** de 320 px a monitores grandes. Pontos de quebra: 380, 720, 900, 960 e 1400 px.
-- **Luz do cursor:** um halo azul de 240 px acompanha o rato, numa camada com
+- **Luz do cursor:** um halo azul de 44 px acompanha o rato, numa camada com
   `z-index: -1` — atrás de todo o conteúdo, a iluminar o fundo. Só aparece em ecrãs
   com rato (nada em toque); com `prefers-reduced-motion` a luz mantém-se, mas
   cola-se ao cursor em vez de o perseguir.
