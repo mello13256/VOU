@@ -282,7 +282,51 @@
     });
   }
 
-  /* ---------- 8. Ano no rodapé ---------- */
+  /* ---------- 8. Luz que segue o cursor ---------- */
+  var backdrop = document.querySelector('.backdrop');
+
+  if (backdrop && finePointer && !reduceMotion) {
+    var glow = document.createElement('div');
+    glow.className = 'cursor-glow';
+    backdrop.appendChild(glow);
+
+    var target = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+    var at = { x: target.x, y: target.y };
+    var glowFrame = null;
+
+    function placeGlow() {
+      glow.style.transform = 'translate3d(' + at.x + 'px, ' + at.y + 'px, 0)';
+    }
+
+    /* a luz persegue o rato com um pequeno atraso, para não parecer colada */
+    function followGlow() {
+      at.x += (target.x - at.x) * 0.16;
+      at.y += (target.y - at.y) * 0.16;
+      placeGlow();
+
+      if (Math.abs(target.x - at.x) > 0.4 || Math.abs(target.y - at.y) > 0.4) {
+        glowFrame = window.requestAnimationFrame(followGlow);
+      } else {
+        glowFrame = null;
+      }
+    }
+
+    placeGlow();
+
+    document.addEventListener('pointermove', function (event) {
+      if (event.pointerType && event.pointerType !== 'mouse') return;
+      target.x = event.clientX;
+      target.y = event.clientY;
+      glow.classList.add('is-on');
+      if (!glowFrame) glowFrame = window.requestAnimationFrame(followGlow);
+    }, { passive: true });
+
+    /* apaga quando o rato sai da janela ou o separador perde o foco */
+    document.addEventListener('mouseleave', function () { glow.classList.remove('is-on'); });
+    window.addEventListener('blur', function () { glow.classList.remove('is-on'); });
+  }
+
+  /* ---------- 9. Ano no rodapé ---------- */
   var year = document.getElementById('year');
   if (year) year.textContent = String(new Date().getFullYear());
 })();
