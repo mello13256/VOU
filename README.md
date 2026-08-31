@@ -71,6 +71,7 @@ O site atualiza sozinho 1 a 2 minutos depois de cada push para o ramo publicado.
 | Adicionar um projeto | copiar um bloco `<article class="project">` inteiro e trocar textos, link e etiquetas |
 | Conhecimentos | `index.html` → secção `id="stack"` |
 | Contactos | `index.html` → secção `id="contato"` **e** o rodapé |
+| Endereço do chat próprio | `index.html` → cartão `card--wide` na secção `id="contato"` (link, texto e botão de copiar) **e** o rodapé |
 | Cores | `css/styles.css` → bloco `:root` (`--arch`, `--mint`, `--abyss`…) |
 | Linhas do terminal | `js/main.js` → variável `session` |
 
