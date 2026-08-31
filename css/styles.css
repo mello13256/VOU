@@ -606,53 +606,6 @@ a { color: inherit; text-decoration: none; }
     var(--surface-2);
 }
 
-.chat-pitch {
-  display: grid; gap: clamp(22px, 3vw, 40px);
-  grid-template-columns: 1fr;
-  align-items: center;
-}
-.chat-pitch .tags { margin-bottom: 1.4rem; }
-
-/* amostra de conversa, no espírito do produto */
-.chat-mock {
-  display: grid; gap: 9px;
-  padding: 14px;
-  border: 1px solid var(--line);
-  border-radius: 14px;
-  background: linear-gradient(180deg, #0d1017, #080a0f);
-  box-shadow: 0 24px 60px -38px rgba(0,0,0,1);
-}
-.chat-mock__bar {
-  display: flex; align-items: center; gap: .7rem;
-  padding-bottom: 10px; margin-bottom: 2px;
-  border-bottom: 1px solid var(--line);
-}
-.chat-mock__title { font-family: var(--font-mono); font-size: .72rem; color: var(--muted-dim); }
-.bubble {
-  max-width: 86%;
-  margin: 0;
-  padding: .6rem .8rem;
-  border-radius: 13px;
-  font-size: .86rem; line-height: 1.5;
-}
-.bubble--them {
-  justify-self: start;
-  border-bottom-left-radius: 4px;
-  border: 1px solid var(--line);
-  background: var(--surface-2);
-  color: var(--text);
-}
-.bubble--me {
-  justify-self: end;
-  border-bottom-right-radius: 4px;
-  border: 1px solid rgba(53,214,164,.32);
-  background: rgba(53,214,164,.13);
-  color: var(--text);
-}
-.chat-mock__seen {
-  justify-self: end; margin: 0;
-  font-family: var(--font-mono); font-size: .68rem; color: var(--muted-dim);
-}
 
 .card__icon--chat {
   color: var(--mint);
@@ -763,7 +716,6 @@ a { color: inherit; text-decoration: none; }
 
 @media (min-width: 720px) {
   .about { grid-template-columns: 1.15fr .85fr; }
-  .chat-pitch { grid-template-columns: 1.1fr .9fr; }
   .about__facts { gap: 12px; }
   .contact { grid-template-columns: repeat(2, 1fr); }
   .site-footer__inner { grid-template-columns: 1.4fr 1fr 1fr; align-items: start; }

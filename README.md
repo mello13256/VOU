@@ -54,6 +54,11 @@ git commit -m "o que mudou"
 git push
 ```
 
+Se mexer no `css/styles.css` ou no `js/main.js`, suba o número da versão nos dois
+endereços do `index.html` (`css/styles.css?v=3` → `?v=4`, o mesmo no `main.js`).
+É o que obriga os navegadores a ir buscar os ficheiros novos em vez de servirem a
+cópia que têm guardada.
+
 O site atualiza sozinho 1 a 2 minutos depois de cada push para o ramo publicado.
 
 ---
@@ -71,7 +76,7 @@ O site atualiza sozinho 1 a 2 minutos depois de cada push para o ramo publicado.
 | Adicionar um projeto | copiar um bloco `<article class="project">` inteiro e trocar textos, link e etiquetas |
 | Conhecimentos | `index.html` → secção `id="stack"` |
 | Contactos | `index.html` → secção `id="contato"` **e** o rodapé |
-| Chat próprio (Talk with me) | `index.html` → cartão `card--chat` na secção `id="contato"` — texto, etiquetas, botões e a amostra de conversa (`chat-mock`) — **e** o rodapé |
+| Chat próprio (Talk with me) | `index.html` → cartão `card--chat` na secção `id="contato"` **e** o rodapé |
 | Cores | `css/styles.css` → bloco `:root` (`--arch`, `--mint`, `--abyss`…) |
 | Linhas do terminal | `js/main.js` → variável `session` |
 
